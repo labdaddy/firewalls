@@ -80,6 +80,3 @@ Although not required if the above options have been configured, you may want to
 
 The result of this would be internal DNS requests would go directly to the DNS server rather than being relayed via the UTM.  The tradeoff is external DNS requests would now have to be relayed via your internal DNS server to the UTM.
 
-Related information
-
-    What Is 1.1.1.1?
