@@ -1,2 +1,2 @@
-# firewalls
-firewall setup information
+## firewalls
+Setup information for sophos and pfsense firewalls
