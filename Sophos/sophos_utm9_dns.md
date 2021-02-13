@@ -14,7 +14,7 @@ The following sections are covered:
 Applies to the following Sophos products and versions
 Sophos UTM
 
-What to do
+#### What to do
 The steps below are suggestions for a generic setup and as such your company or network requirements may differ from these examples.
 
 These suggested best practices provide the following benefits:
@@ -24,14 +24,14 @@ These suggested best practices provide the following benefits:
     If you assign the AD DNS server as the Primary DNS and the UTM as the Secondary DNS for your workstations, you provide DNS redundancy for your workstations.
     Creating an internal DNS Request Route with a PTR will allow the UTM to generate hostnames instead of IP addresses in the Web Proxy and other reports.
 
-DNS allowed networks
+#### DNS allowed networks
 
     Browse to Network Services > DNS > Global
     Depending on network configuration either add:
         The internal networks if clients use UTM as DNS server
         The DNS servers if clients use an internal DNS server for DNS requests
 
-DNS availability group
+#### DNS availability group
 
     Browse to Definitions & Users > Network Definitions and click on +New network definition.
     Configure two separate network definitions with the following properties:
@@ -48,7 +48,7 @@ DNS availability group
 
 Note: The use of Google DNS is only one suggestion, any public DNS provider would do. Please pick the one you trust and use that. Cloudflare's new DNS resolver at 1.1.1.1 would also be a valid option. 
 
-DNS forwarders
+#### DNS forwarders
 
     Browse to Network Services > DNS > Forwarders.
     Select the option Use forwarders assigned by ISP.
@@ -56,7 +56,7 @@ DNS forwarders
     Add the availability group Google DNS Servers created earlier.
     Apply changes.
 
-Request routing
+#### Request routing
 
     Browse to: Network Services > DNS > Request Routing and select +New DNS request route.
     Configure the rule as follows
@@ -65,7 +65,7 @@ Request routing
 
 Note: If this is a multi-domain environment you may need to configure multiple request routes.
 
-Reverse DNS
+#### Reverse DNS
 With this PTR request route, the UTM can list machine names instead of internal IP addresses in the reports.
 
     Browse to Network Services > DNS > Request Routing and select +New DNS request route.
@@ -75,7 +75,7 @@ With this PTR request route, the UTM can list machine names instead of internal 
 
 Note: An example PTR record for an address range of 172.16.20.0/24 would be 20.16.172.in-addr.arpa.
 
-Network Configuration
+#### Network Configuration
 Although not required if the above options have been configured, you may want to consider setting your workstations to use your internal DNS server as their DNS server rather than the UTM.  Make sure the UTM is configured as a forwarder on your internal DNS server.  
 
 The result of this would be internal DNS requests would go directly to the DNS server rather than being relayed via the UTM.  The tradeoff is external DNS requests would now have to be relayed via your internal DNS server to the UTM.
