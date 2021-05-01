@@ -1,7 +1,7 @@
-#### pfsense setup for quad nine dns. From [Linuxincluded.com](https://linuxincluded.com/configuring-quad9-on-pfsense/)
+### pfsense setup for quad nine dns. From [Linuxincluded.com](https://linuxincluded.com/configuring-quad9-on-pfsense/)
 
 
-#### Enable Quad 9 DNS
+### Enable Quad 9 DNS
 First things first, after logging into your firewall, go to System -> General Setup so you can change your primary and secondary DNS servers to those of Quad9. While you are there, make sure the “DNS Server Override” and “Disable DNS Forwarder” options are not checked (as shown below). Don’t forget to click ‘Save’ at the bottom.
 IPv4
 Primary DNS: 9.9.9.9
@@ -10,14 +10,14 @@ IPv6
 Primary DNS: 2620:fe::fe
 Secondary DNS: 2620:fe::9
 
-#### Enable DNS resolver
+### Enable DNS resolver
 Go to the Services -> DNS Resolver and put a checkmark in the “DNS Query Forwarding” if it isn’t there already. Make sure both “DNSSEC” and “Use SSL/TLS for outgoing DNS Queries to Forwarding Servers” are checked too.
 
 
-#### Enable DNSSEC and DNS over TLS
+### Enable DNSSEC and DNS over TLS
 DNSSEC and DNS over TLS are security enhancements Quad9 offers that many other DNS providers do not. DNS over TLS, for example, forces your pfSense firewall (unbound resolver) to encrypt the DNS transaction as it traverses the internet; what that means is a man-in-the-middle on the internet (or a nosy upstream network provider) can’t see which hostnames you are querying and as important, no one can modify the DNS responses. If you want to double-check whether your DNS over TLS configuration is working, you can follow the “Testing DNS over TLS on pfSense” section below.
 
-#### Setup Logging
+### Setup Logging
 Log Config – NXDOMAIN
 
 What’s the best way to troubleshoot? Get familiar with your logs. Better yet, configure them properly when you first set this up. Go to Services -> DNS Resolver -> Advanced Settings and switch the default log level from 1 to 2 (or higher). Don’t forget ‘Save’ and ‘Apply Changes’ once you are done.
